@@ -5,7 +5,7 @@
     android:versionName="1.13beta6">
     <!-- <uses-sdk android:minSdkVersion="4" /> -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -25,6 +25,11 @@
         android:supportsRtl="false"
         android:theme="@style/UnoProcidaResidenteTheme"
         android:usesCleartextTraffic="true">
+        <service android:name=".threads.weather.WeatherService" />
+        <service android:name=".threads.alerts.AlertsService"/>
+        <service android:name=".threads.transports.TransportsService"/>
+        <service android:name=".threads.companies.CompaniesService"/>
+        <service android:name=".threads.taxies.TaxisService"/>
         <activity
             android:name=".activities.InfoActivity"
             android:exported="true" >

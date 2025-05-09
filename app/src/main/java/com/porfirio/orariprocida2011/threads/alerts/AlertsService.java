@@ -1,4 +1,4 @@
-package com.porfirio.orariprocida2011.threads.alerts.experimental;
+package com.porfirio.orariprocida2011.threads.alerts;
 
 import android.app.Service;
 import android.content.Intent;
@@ -15,8 +15,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.porfirio.orariprocida2011.entity.Alert;
-import com.porfirio.orariprocida2011.threads.alerts.AlertUpdate;
-import com.porfirio.orariprocida2011.threads.alerts.AlertsDAO;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -118,13 +116,13 @@ public class AlertsService extends Service implements AlertsDAO {
     }
 
     private Alert parse(DataSnapshot snapshot) {
-        return new Alert(
-                snapshot.getKey(),
-                snapshot.child("routeId").getValue(String.class),
-                snapshot.child("reason").getValue(Integer.class),
-                snapshot.child("details").getValue(String.class),
-                LocalDate.parse(snapshot.child("transportDate").getValue(String.class))
+            return new Alert(
+                    snapshot.getKey(),
+                    snapshot.child("routeId").getValue(String.class),
+                    snapshot.child("reason").getValue(Integer.class),
+                    snapshot.child("details").getValue(String.class),
+                    LocalDate.parse(snapshot.child("transportDate").getValue(String.class))
         );
     }
-
 }
+

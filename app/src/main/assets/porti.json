@@ -1,0 +1,9 @@
+[
+  { "nome": "Procida", "latitudine": 40.7580, "longitudine": 14.0192 },
+  { "nome": "Ischia", "latitudine": 40.7450, "longitudine": 13.9516 },
+  { "nome": "Casamicciola", "latitudine": 40.7500, "longitudine": 13.8890 },
+  { "nome": "Napoli Beverello", "latitudine": 40.8376, "longitudine": 14.2548 },
+  { "nome": "Napoli Porta di Massa", "latitudine": 40.8424, "longitudine": 14.2602 },
+  { "nome": "Pozzuoli", "latitudine": 40.8239, "longitudine": 14.1179 },
+  { "nome": "Monte di Procida", "latitudine": 40.8000, "longitudine": 14.0500 }
+]

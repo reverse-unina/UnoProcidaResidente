@@ -1,4 +1,4 @@
-package com.porfirio.orariprocida2011.threads.weather.experimental;
+package com.porfirio.orariprocida2011.threads.weather;
 
 import android.app.Service;
 import android.content.Intent;
@@ -9,9 +9,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.porfirio.orariprocida2011.entity.Osservazione;
-import com.porfirio.orariprocida2011.threads.weather.WeatherAPI;
-import com.porfirio.orariprocida2011.threads.weather.WeatherDAO;
-import com.porfirio.orariprocida2011.threads.weather.WeatherUpdate;
 
 import java.util.List;
 import java.util.concurrent.Executors;
