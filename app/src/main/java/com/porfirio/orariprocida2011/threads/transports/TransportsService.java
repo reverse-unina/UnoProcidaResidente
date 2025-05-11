@@ -86,6 +86,27 @@ public class TransportsService extends Service implements TransportsDAO {
     public LiveData<TransportsUpdate> getUpdates() {
         return update;
     }
+    public void requestUpdate() {
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList<Mezzo> transportList = new ArrayList<>();
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Mezzo mezzo = parseMezzo(snapshot);
+                    transportList.add(mezzo);
+                }
+                Log.d("TransportsService", "[Manual] Numero di elementi ricevuti: " + transportList.size());
+                update.postValue(new TransportsUpdate(transportList, LocalDateTime.now()));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                update.postValue(new TransportsUpdate(databaseError.toException()));
+            }
+        });
+    }
+
 
     private Mezzo parseMezzo(DataSnapshot snapshot) {
         LocalDate exclusionStart = snapshot.hasChild("inizioEsclusione") ? LocalDate.parse(snapshot.child("inizioEsclusione").getValue(String.class)) : null;

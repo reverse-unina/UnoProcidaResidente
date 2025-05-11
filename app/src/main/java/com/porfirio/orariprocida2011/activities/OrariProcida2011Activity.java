@@ -310,9 +310,13 @@ public class OrariProcida2011Activity extends FragmentActivity {
         startService(taxisIntent);
         bindService(taxisIntent, taxisConnection, Context.BIND_AUTO_CREATE);
 
+        Log.d("SERVICE", "Il bound vale: "+isTransportsBound);
+
 
         if (isTransportsBound && transportsService != null) {
+            Log.d("SERVICE", "Sto refreshando..");
             transportsService.getUpdates().observe(this, this::onTransportsUpdate);
+            Log.d("SERVICE", "Refresh finito");
         }
 
         fm = getSupportFragmentManager();
@@ -474,12 +478,15 @@ public class OrariProcida2011Activity extends FragmentActivity {
             @Override
             public void onRefresh() {
                 analytics.send(ANALYTICS_CATEGORY_UI_EVENT, "Update Orari da Web da Menu");
+                Log.d("SWIPE", "Ho fatto lo swipe");
 
                 lottieLoader.setVisibility(VISIBLE);
                 lottieLoader.playAnimation();
 
                 blurredBackground.setVisibility(VISIBLE);
-                transportsService.getUpdates();
+                    Log.d("SWIPE", "Sto chiamando getUpdates");
+                    transportsService.requestUpdate();
+                    Log.d("SWIPE", "Ho chiamato getUpdates");
 
                 swipe_refresh_layout.setRefreshing(false);
             }
@@ -511,7 +518,7 @@ public class OrariProcida2011Activity extends FragmentActivity {
             lottieLoader.playAnimation();
 
             blurredBackground.setVisibility(VISIBLE);
-            transportsService.getUpdates();
+            transportsService.requestUpdate();
         });
 
 
@@ -629,6 +636,7 @@ public class OrariProcida2011Activity extends FragmentActivity {
         blurredBackground.setVisibility(VISIBLE);
         lottieLoader.setVisibility(VISIBLE);
         lottieLoader.playAnimation();
+        Log.d("AGGIORNA LISTA", "I flag sono: "+!hasReceivedWeather+!hasReceivedTransports+!hasReceivedCompanies+!hasReceivedAlerts);
         if ((!hasReceivedWeather || !hasReceivedTransports || !hasReceivedCompanies || !hasReceivedAlerts) && !forced)
             return;
 
@@ -922,10 +930,13 @@ public class OrariProcida2011Activity extends FragmentActivity {
         hasReceivedTransports = true;
         lottieLoader.setVisibility(VISIBLE);
         lottieLoader.playAnimation();
+        Log.d("DEBUG", "Verifico se update è valido: "+update.isValid());
         if (update.isValid()) {
             transportList.clear();
             transportList.addAll(update.getData());
+            Log.d("DEBUG", "Chiamo aggiornalista");
             aggiornaLista(false);
+            Log.d("DEBUG", "Finito aggiornalista");
 
             alertsDAO.requestUpdate();
 
@@ -1045,7 +1056,6 @@ public class OrariProcida2011Activity extends FragmentActivity {
         String routeId = alert.getRouteId();
         String transportId = transport.getId();
         LocalDate alertDate = alert.getTransportDate();
-
         if (routeId == null || transportId == null || alertDate == null) {
             return false;
         }
