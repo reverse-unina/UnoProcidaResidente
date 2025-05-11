@@ -108,6 +108,7 @@ public class AlertsService extends Service implements AlertsDAO {
 
         HashMap<String, Object> attributes = new HashMap<>();
 
+        attributes.put("routeId", alert.getRouteId());
         attributes.put("transportDate", DateTimeFormatter.ISO_LOCAL_DATE.format(alert.getTransportDate()));
         attributes.put("details", alert.getDetails());
         attributes.put("reason", alert.getReason());
