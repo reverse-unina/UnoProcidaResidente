@@ -59,13 +59,9 @@ import com.porfirio.orariprocida2011.threads.alerts.AlertsService;
 import com.porfirio.orariprocida2011.threads.alerts.OnRequestAlertsDAO;
 import com.porfirio.orariprocida2011.threads.companies.CompaniesService;
 import com.porfirio.orariprocida2011.threads.companies.CompaniesUpdate;
-import com.porfirio.orariprocida2011.threads.companies.OnRequestCompaniesDAO;
-import com.porfirio.orariprocida2011.threads.taxies.OnRequestTaxisDAO;
 import com.porfirio.orariprocida2011.threads.taxies.TaxisService;
-import com.porfirio.orariprocida2011.threads.transports.OnRequestTransportsDAO;
 import com.porfirio.orariprocida2011.threads.transports.TransportsService;
 import com.porfirio.orariprocida2011.threads.transports.TransportsUpdate;
-import com.porfirio.orariprocida2011.threads.weather.OnRequestWeatherDAO;
 import com.porfirio.orariprocida2011.threads.weather.WeatherService;
 import com.porfirio.orariprocida2011.threads.weather.WeatherUpdate;
 import com.porfirio.orariprocida2011.utils.Analytics;
@@ -371,8 +367,8 @@ public class OrariProcida2011Activity extends FragmentActivity {
 
         lottieLoader.setAnimationFromJson(jsonString, "loading_animation");
 
-
-        c = Calendar.getInstance(TimeZone.getDefault());
+        TimeZone italianTimeZone = TimeZone.getTimeZone("Europe/Rome");
+        c = Calendar.getInstance(italianTimeZone);
 
 
         timeButton.setOnClickListener(v -> {
