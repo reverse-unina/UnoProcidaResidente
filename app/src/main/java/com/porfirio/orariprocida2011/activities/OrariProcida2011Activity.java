@@ -698,9 +698,9 @@ public class OrariProcida2011Activity extends FragmentActivity {
 
     private String espandiNave(String nave) {
         if (nave.contains(getString(R.string.traghetti)))
-            return "Traghetto Caremar Medmar Ippocampo Ippocampo(da Chiaiolella) Ippocampo(a Chiaiolella) Traghetto LazioMar";
+            return "Traghetto Caremar Medmar Ippocampo ScottoLine Traghetto LazioMar";
         if (nave.contains(getString(R.string.aliscafi)))
-            return "Aliscafo Caremar Aliscafo SNAV Scotto Line Aliscafo Alilauro";
+            return "Aliscafo Caremar Aliscafo SNAV Aliscafo Alilauro";
         if (nave.equals("Ippocampo"))
             return "Ippocampo Ippocampo(da Chiaiolella) Ippocampo(a Chiaiolella)";
         if (nave.contains("Gestur"))
@@ -718,6 +718,10 @@ public class OrariProcida2011Activity extends FragmentActivity {
                 return "Ischia Porto o Casamicciola";
             case "Monte di Procida":
                 return "Monte di Procida";
+            case "Capri" :
+                return "Capri";
+            case "Sorrento":
+                return "Sorrento";
             default:
                 return porto;
         }

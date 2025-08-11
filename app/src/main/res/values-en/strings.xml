@@ -11,9 +11,9 @@
         <item>Gestur</item>
         <item>Medmar</item>
         <item>Ippocampo</item>
-        <item>Scotto Line</item>
+        <item>ScottoLine</item>
         <item>Aliscafo Alilauro</item>
-        <item>Traghetto LazioMar</item>
+        <item>Aliscafo Alicost</item>
     </string-array>
     <string-array name="strPorti">
         <item>Any port</item>
@@ -24,11 +24,11 @@
         <item>Napoli o Pozzuoli</item>
         <item>Napoli Beverello</item>
         <item>Napoli Porta di Massa</item>
-        <item>Napoli Mergellina</item>
         <item>Ischia Porto</item>
         <item>Casamicciola</item>
-        <item>Ischia</item>
         <item>Monte di Procida</item>
+        <item>Sorrento</item>
+        <item>Capri</item>
     </string-array>
     <string-array name="strRagioni">
         <item>Unknown</item>
