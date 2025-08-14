@@ -7,8 +7,8 @@ android {
     defaultConfig {
         applicationId = "com.porfirio.orariprocida2011"
         minSdkVersion 29
-        compileSdk 35
-        targetSdkVersion 35
+        compileSdk 36
+        targetSdkVersion 36
         testInstrumentationRunner = 'android.support.test.runner.AndroidJUnitRunner'
     }
 
