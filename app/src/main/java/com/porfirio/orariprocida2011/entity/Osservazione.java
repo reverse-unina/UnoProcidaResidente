@@ -1,6 +1,5 @@
 package com.porfirio.orariprocida2011.entity;
 
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 // NOTE: this class should be renamed to "Forecast" probably
@@ -14,10 +13,6 @@ public class Osservazione {
     private Direction windDirection;
     private float windSpeed;
     private ZonedDateTime time;
-
-    public Osservazione() {
-        this(0, Direction.N, ZonedDateTime.now());
-    }
 
     public Osservazione(float windSpeed, float windAngle, ZonedDateTime time) {
         setWindDirection(windAngle);

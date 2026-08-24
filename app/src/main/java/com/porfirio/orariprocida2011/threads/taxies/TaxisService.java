@@ -6,6 +6,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -47,7 +48,7 @@ public class TaxisService extends Service implements TaxisDAO {
         Log.d("TaxisService", "Richiesta aggiornamento taxi inviata");
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
                     ArrayList<Taxi> taxies = new ArrayList<>();
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -62,7 +63,7 @@ public class TaxisService extends Service implements TaxisDAO {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 updates.postValue(new TaxisUpdate(databaseError.toException()));
                 Log.e("TaxisService", "Errore nella richiesta dati: " + databaseError.getMessage());
             }

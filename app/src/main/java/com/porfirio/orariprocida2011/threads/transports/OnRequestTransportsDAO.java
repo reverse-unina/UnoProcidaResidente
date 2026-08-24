@@ -1,7 +1,5 @@
 package com.porfirio.orariprocida2011.threads.transports;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
