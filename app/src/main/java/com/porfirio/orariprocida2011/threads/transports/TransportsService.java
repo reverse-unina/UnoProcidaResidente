@@ -113,7 +113,8 @@ public class TransportsService extends Service implements TransportsDAO {
         LocalDate exclusionEnd = snapshot.hasChild("fineEsclusione") ? LocalDate.parse(snapshot.child("fineEsclusione").getValue(String.class)) : null;
         LocalTime departureTime = LocalTime.parse(snapshot.child("oraPartenza").getValue(String.class));
         LocalTime arrivalTime = LocalTime.parse(snapshot.child("oraArrivo").getValue(String.class));
-        byte activeDays = snapshot.hasChild("giorniSettimana") ? getActiveDays(snapshot.child("giorniSettimana").getValue(String.class)) : Byte.MIN_VALUE;
+        Log.d("TransportsService", "Mezzo: " + snapshot.getKey());
+         byte activeDays = snapshot.hasChild("giorniSettimana") ? getActiveDays(snapshot.child("giorniSettimana").getValue(String.class)) : Byte.MIN_VALUE;
 
         return new Mezzo(
                 snapshot.getKey(),

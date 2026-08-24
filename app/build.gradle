@@ -7,16 +7,19 @@ android {
     defaultConfig {
         applicationId = "com.porfirio.orariprocida2011"
         minSdkVersion 29
-        compileSdk 35
-        targetSdkVersion 35
+        compileSdk 36
+        targetSdkVersion 36
         testInstrumentationRunner = 'android.support.test.runner.AndroidJUnitRunner'
     }
 
     buildTypes {
         release {
             minifyEnabled = false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.txt'
         }
+    }
+    buildFeatures {
+        resValues true
     }
     namespace = 'com.porfirio.orariprocida2011'
 }
@@ -25,19 +28,19 @@ dependencies {
     //implementation files('libs/json-simple-1.1.1.jar')
     //implementation files('libs/libGoogleAnalyticsServices.jar')
 
-    implementation platform('com.google.firebase:firebase-bom:34.1.0')
+    implementation platform('com.google.firebase:firebase-bom:34.18.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
     implementation 'com.google.android.gms:play-services-analytics:18.1.1'
     implementation 'com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    implementation 'com.google.firebase:firebase-database:22.0.0'
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'com.google.firebase:firebase-database:22.0.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.2.0'
+    implementation 'com.google.android.material:material:1.14.0'
 
 
-    implementation 'com.airbnb.android:lottie:6.6.7'
+    implementation 'com.airbnb.android:lottie:6.7.1'
 }
 
 java {
